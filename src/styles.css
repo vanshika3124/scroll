@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Manrope', sans-serif;
+  color: #18201d;
+  background: #f5f6f2;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; background: #f5f6f2; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+
+.scrolly-page { overflow: clip; }
+.nav {
+  align-items: center;
+  color: #18201d;
+  display: grid;
+  font-size: 11px;
+  grid-template-columns: 1fr 1fr 1fr;
+  left: 0;
+  letter-spacing: .08em;
+  padding: 28px 4vw;
+  position: absolute;
+  right: 0;
+  text-transform: uppercase;
+  top: 0;
+  z-index: 5;
+}
+.brand { align-items: center; display: flex; font-weight: 700; gap: 10px; letter-spacing: .04em; }
+.brand-mark { align-items: center; background: #16221f; border-radius: 50%; color: #eef0e9; display: inline-flex; font-size: 12px; height: 24px; justify-content: center; width: 24px; }
+.nav-note { justify-self: center; opacity: .55; }
+.nav-link { justify-self: end; }
+.nav-link span { font-size: 16px; margin-left: 8px; }
+
+.sticky-stage { height: 400vh; position: relative; }
+.sequence-canvas { height: 100vh; left: 0; object-fit: contain; position: sticky; top: 0; width: 100%; }
+.story-copy { height: 100vh; inset: 0; pointer-events: none; position: sticky; top: 0; z-index: 2; }
+.story-block { left: 50%; position: absolute; top: 50%; transform: translate(-50%, -50%); width: min(460px, 90vw); }
+.story-block--left { left: 10vw; transform: translateY(-50%); }
+.story-block--right { left: auto; right: 10vw; transform: translateY(-50%); }
+.story-block--center { text-align: center; }
+.story-block--final { pointer-events: auto; }
+.eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .18em; margin: 0 0 22px; opacity: .62; }
+h1, h2 { font-size: clamp(44px, 6.3vw, 92px); font-weight: 500; letter-spacing: -.07em; line-height: .94; margin: 0; }
+h2 { font-size: clamp(40px, 5.5vw, 76px); }
+em { font-family: Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -.08em; }
+.story-lede { font-size: 14px; line-height: 1.55; margin: 27px 0 0; max-width: 260px; opacity: .68; }
+.story-block--center .story-lede { margin-left: auto; margin-right: auto; }
+.cta { background: #16221f; border: 0; border-radius: 100px; color: #f5f6f2; cursor: pointer; font-size: 12px; margin-top: 34px; padding: 15px 20px; pointer-events: auto; }
+.cta span { font-size: 16px; margin-left: 12px; }
+.scroll-hint { align-items: center; bottom: 28px; display: flex; font-family: 'DM Mono', monospace; font-size: 10px; gap: 10px; left: 50%; letter-spacing: .12em; opacity: .6; position: absolute; text-transform: uppercase; transform: translateX(-50%); z-index: 3; }
+.scroll-line { background: #18201d; display: inline-block; height: 34px; opacity: .55; width: 1px; }
+.loader { align-items: center; background: #f5f6f2; display: flex; font-family: 'DM Mono', monospace; font-size: 10px; gap: 12px; inset: 0; justify-content: center; letter-spacing: .08em; position: fixed; text-transform: uppercase; z-index: 10; }
+.loader-ring { animation: spin .8s linear infinite; border: 1px solid rgba(24,32,29,.25); border-top-color: #18201d; border-radius: 50%; height: 16px; width: 16px; }
+.after-section { align-items: center; background: #16221f; color: #f5f6f2; display: flex; flex-direction: column; justify-content: center; min-height: 80vh; padding: 10vw; text-align: center; }
+.after-section .eyebrow { opacity: .5; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (max-width: 700px) {
+  .nav { grid-template-columns: 1fr auto; padding: 22px 6vw; }
+  .nav-note { display: none; }
+  .sequence-canvas { height: 100svh; }
+  .story-copy { height: 100svh; }
+  .story-block--left, .story-block--right { left: 8vw; right: 8vw; text-align: center; transform: translateY(-50%); width: auto; }
+  .story-block--left .story-lede, .story-block--right .story-lede { margin-left: auto; margin-right: auto; }
+  h1 { font-size: clamp(42px, 14vw, 68px); }
+  h2 { font-size: clamp(38px, 12vw, 60px); }
+  .scroll-hint { bottom: 20px; }
+}
